@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>click</title>
+</head>
+<body>
+
+    <button id="showBtn">Click Me</button>
+
+    <p id="output">Click Me</p>
+
+    <script>
+        document.querySelector("#showBtn")
+            .addEventListener("click", () => {
+                document.querySelector("#output").textContent = "Hello, BSIS!";
+            });
+    </script>
+
+</body>
+</html>

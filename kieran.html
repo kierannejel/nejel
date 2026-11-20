@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click</title>
+</head>
+<body>
+<cript>
+    <button id="ShowBtn">Click me</button>
+
+    <p id="output">
+    </p>
+
+    <script src="kieran.js"></script>
+     
+</form>
+<script
+<form id="editor" hidden>
+<label>Student Name: <input id=" nameinput" required>
+</label>
+<button>Save</button>
+</script>
+const row = document.querySelector("#row");
+const editor = document.querySelector("#editor");
+const nameInput = document.querySelector("#name");
+const studentName = document.querySelector("#studentName");
+function openEditor() {
+    editor.hidden = false;
+    nameInput.value = studentName.textContent;
+
+    !DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click</title>
+</head>
+<body>  
+    <table>
+        <tbody>
+            <tr id="row">
+                <td id="studentName">budoy</td>
+                <td>
+                    <button id="editBtn">Edit</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+<form id="editor" hidden>
+   <label>Student Name: <input id=" nameinput" required>  
+   </label>
+   <button>Save</button>
+</form>
+<script>
+    const row = document.querySelector("#row");
+    const editor = document.querySelector("#editor");
+    const nameInput = document.querySelector("#name");
+    const studentName = document.querySelector("#studentName");
+    function openEditor() {
+        editor.hidden = false;
+        nameInput.value = studentName.textContent;
+        nameInput.focus();
+    }
+    row.addEventListener("dbclick", openEditor);
+    document.querySelector("#editor").addEventListener("click", showeditor);
+    editor.addEventListener("submit", (event) => {
+        event.preventDefault();
+        studentName.textContent = nameInput.value;
+        editor.hidden = true;
+    });
+    </script>
+
+</body>
+</html>
+       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    nameInput.focus();
+}
+row.addEventListener("click", openEditor);
+document.querySelector("#editor").addEventListener("submit", (event) => {
+    event.preventDefault();
+    studentName.textContent = nameInput.value;
+    editor.hidden = true;
+});
