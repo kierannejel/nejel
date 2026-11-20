@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Personal Vlog | NEJEL KIERAN</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #101010;
+    color: #fff;
+    line-height: 1.6;
+}
+
+:root {
+    --accent: #d6a76c;
+    --dark: #101010;
+    --card: #1c1c1c;
+    --muted: #aaa;
+}
+
+header {
+    width: 100%;
+    padding: 20px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(16,16,16,.95);
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #292929;
+}
+
+.logo {
+    font-size: 23px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: var(--accent);
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: var(--accent);
+}
+
+.menu-btn {
+    display: none;
+    background: none;
+    color: white;
+    border: none;
+    font-size: 27px;
+    cursor: pointer;
+}
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 120px 20px 60px;
+    background:
+      linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.75)),
+      url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1800&q=85')
+      center/cover;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero h1 {
+    font-size: clamp(42px, 8vw, 76px);
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.hero h1 span {
+    color: var(--accent);
+}
+
+.hero p {
+    color: #ddd;
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 13px 30px;
+    background: var(--accent);
+    color: #111;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: .3s;
+}
+
+.btn:hover {
+    background: white;
+    transform: translateY(-3px);
+}
+
+section {
+    padding: 90px 8%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-title h2 {
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+.section-title span {
+    color: var(--accent);
+}
+
+.section-title p {
+    color: var(--muted);
+}
+
+.about-container {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.about-image img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.about-text h2 {
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+.about-text h2 span {
+    color: var(--accent);
+}
+
+.about-text p {
+    color: #bbb;
+    margin-bottom: 18px;
+}
+
+.vlog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.vlog-card {
+    background: var(--card);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: .3s;
+}
+
+.vlog-card:hover {
+    transform: translateY(-8px);
+}
+
+.vlog-card img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    display: block;
+}
+
+.vlog-info {
+    padding: 22px;
+}
+
+.category {
+    color: var(--accent);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.vlog-info h3 {
+    margin: 10px 0;
+    font-size: 21px;
+}
+
+.vlog-info p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.category-section {
+    background: #171717;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.category-card {
+    height: 250px;
+    border-radius: 15px;
+    display: flex;
+    align-items: end;
+    padding: 25px;
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+    transition: .3s;
+}
+
+.category-card:hover {
+    transform: scale(1.02);
+}
+
+.category-card h3 {
+    font-size: 25px;
+    text-shadow: 2px 2px 8px black;
+}
+
+.social {
+    text-align: center;
+}
+
+.social p {
+    color: var(--muted);
+    margin-bottom: 25px;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.social-links a {
+    text-decoration: none;
+    color: white;
+    border: 1px solid var(--accent);
+    padding: 12px 25px;
+    border-radius: 30px;
+    transition: .3s;
+}
+
+.social-links a:hover {
+    background: var(--accent);
+    color: black;
+}
+
+footer {
+    background: #080808;
+    text-align: center;
+    padding: 25px;
+    color: #888;
+    font-size: 14px;
+}
+
+footer span {
+    color: var(--accent);
+}
+
+@media(max-width: 850px) {
+    .about-container {
+        grid-template-columns: 1fr;
+    }
+
+    .vlog-grid,
+    .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 600px) {
+    header {
+        padding: 18px 5%;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    nav {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: #171717;
+        flex-direction: column;
+        padding: 25px;
+        gap: 20px;
+    }
+
+    nav.active {
+        display: flex;
+    }
+
+    section {
+        padding: 65px 6%;
+    }
+
+    .vlog-grid,
+    .category-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .about-image img {
+        height: 300px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">MY <span>VLOG.</span></div>
+
+    <button class="menu-btn" id="menuBtn"
+      aria-label="Toggle navigation" aria-expanded="false">☰</button>
+
+    <nav id="navbar">
+        <a href="#home">Home</a>
+        <a href="#about">About Me</a>
+        <a href="#vlogs">My Vlogs</a>
+        <a href="#categories">Categories</a>
+        <a href="#contact">Socials</a>
+    </nav>
+</header>
+
+<!-- HOME -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <p>WELCOME TO MY WORLD</p>
+        <h1>MY PERSONAL <span>VLOG</span></h1>
+        <p>
+            Capturing moments, exploring places,
+            enjoying delicious food and making memories.
+        </p>
+        <a href="#vlogs" class="btn">Explore My Vlogs</a>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+    <div class="about-container">
+
+        <div class="about-image">
+            <img src="https://images.unsplash.com/photo-1490730141103-6cac27aaab94?auto=format&fit=crop&w=900&q=85"
+            alt="Beautiful lifestyle scenery">
+        </div>
+
+        <div class="about-text">
+            <h2>ABOUT <span>ME</span></h2>
+
+            <p>
+                Hi! Welcome to my personal vlog website.
+                I'm NEJEL KIERAN DE JESUS.
+            </p>
+
+            <p>
+                I LOVE FOOD! I enjoy discovering delicious
+                meals, exploring beautiful destinations,
+                experiencing everyday adventures, and
+                capturing unforgettable memories.
+            </p>
+
+            <p>
+                This website is where I share my daily life,
+                travel adventures, food discoveries, and
+                lifestyle experiences.
+            </p>
+
+            <a href="#contact" class="btn">Connect With Me</a>
+        </div>
+
+    </div>
+</section>
+
+<!-- VLOGS -->
+<section id="vlogs">
+    <div class="section-title">
+        <h2>MY LATEST <span>VLOGS</span></h2>
+        <p>Little moments and unforgettable experiences.</p>
+    </div>
+
+    <div class="vlog-grid">
+
+        <div class="vlog-card">
+            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=85"
+            alt="Restaurant dining">
+            <div class="vlog-info">
+                <span class="category">Food & Lifestyle</span>
+                <h3>Food Trip Adventures</h3>
+                <p>Discovering delicious food and enjoying every bite!</p>
+            </div>
+        </div>
+
+        <div class="vlog-card">
+            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=85"
+            alt="Travel landscape">
+            <div class="vlog-info">
+                <span class="category">Travel</span>
+                <h3>Beautiful Destinations</h3>
+                <p>Exploring new places and creating amazing memories.</p>
+            </div>
+        </div>
+
+        <div class="vlog-card">
+            <img src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=800&q=85"
+            alt="Cozy everyday lifestyle">
+            <div class="vlog-info">
+                <span class="category">Daily Life</span>
+                <h3>My Everyday Moments</h3>
+                <p>Simple days, happy moments, and little adventures.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- CATEGORIES -->
+<section class="category-section" id="categories">
+    <div class="section-title">
+        <h2>EXPLORE <span>CATEGORIES</span></h2>
+        <p>Things you can discover on my vlog.</p>
+    </div>
+
+    <div class="category-grid">
+
+        <div class="category-card"
+        style="background-image:linear-gradient(transparent,rgba(0,0,0,.8)),url('https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=800&q=85')">
+            <h3>Food & Lifestyle</h3>
+        </div>
+
+        <div class="category-card"
+        style="background-image:linear-gradient(transparent,rgba(0,0,0,.8)),url('https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=800&q=85')">
+            <h3>Travel Adventures</h3>
+        </div>
+
+        <div class="category-card"
+        style="background-image:linear-gradient(transparent,rgba(0,0,0,.8)),url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=800&q=85')">
+            <h3>Daily Life</h3>
+        </div>
+
+    </div>
+</section>
+
+<!-- SOCIALS -->
+<section class="social" id="contact">
+    <div class="section-title">
+        <h2>LET'S <span>CONNECT</span></h2>
+        <p>Follow my journey and stay updated with my adventures!</p>
+    </div>
+
+    <h3>NEJEL KIERAN DE JESUS</h3>
+
+    <div class="social-links">
+        <!-- Replace # with your actual social media URLs -->
+        <a href="#" target="_blank" rel="noopener">Facebook</a>
+        <a href="#" target="_blank" rel="noopener">Instagram</a>
+        <a href="#" target="_blank" rel="noopener">YouTube</a>
+        <a href="#" target="_blank" rel="noopener">TikTok</a>
+    </div>
+</section>
+
+<footer>
+    <p>© <span id="year"></span> My Personal Vlog.
+    Made with <span>♥</span> by NEJEL KIERAN DE JESUS.</p>
+</footer>
+
+<script>
+const menuBtn = document.getElementById("menuBtn");
+const navbar = document.getElementById("navbar");
+
+menuBtn.addEventListener("click", () => {
+    navbar.classList.toggle("active");
+    menuBtn.setAttribute(
+        "aria-expanded",
+        navbar.classList.contains("active")
+    );
+});
+
+document.querySelectorAll("#navbar a").forEach(link => {
+    link.addEventListener("click", () => {
+        navbar.classList.remove("active");
+        menuBtn.setAttribute("aria-expanded", "false");
+    });
+});
+
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
